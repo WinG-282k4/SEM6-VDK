@@ -36,7 +36,7 @@ void handleSwipe() {
         }
     }
 
-    if (triggeredLDR == -1) return; // Không có LDR nào bị kích hoạt
+    if (triggeredLDR == -1) return; // Không có LDR nào bị kích hoạt, chống quét một nửa
 
     // Xác định hướng quét dựa trên LDR trước đó
     if (lastTriggered != -1) {

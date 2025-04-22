@@ -1,0 +1,146 @@
+Thiết kế một hệ thống robot có khả năng báo thức và tránh vật cản thông minh sử dụng Arduino.
+
+Goal:   Cung cấp code đầy đủ nhất cho dự án.
+Mục tiêu:
+
+Robot tự động phát âm báo khi đến đúng thời điểm báo thức.
+
+Nếu có người đứng phía sau (qua cảm biến PIR), robot bắt đầu di chuyển.
+
+Khi di chuyển, robot tránh vật cản phía trước nhờ 3 cảm biến siêu âm.
+
+Robot dừng lại khi được nâng lên khỏi mặt đất (dò bằng cảm biến dưới đáy).
+
+Logic hoạt động yêu cầu:
+Hệ thống đọc thời gian từ module DS3231.
+
+Nếu trùng với một thời điểm báo thức đã cài sẵn (ví dụ: 16:00, 16:10, 16:15):
+
+    Kích hoạt loa active để phát âm báo.
+
+Chờ đến khi cảm biến PIR phát hiện có người đứng sau.
+
+Bắt đầu di chuyển và kiểm tra liên tục 3 cảm biến siêu âm phía trước:
+
+    Nếu có vật cản ≤ 10cm (nếu 1 trong 3 cảm biến trả giá trị <=10cm)t => robot  né trái/phải và tiếp tục di chuyển (đảm bảo logic phần chạy xe phải thông minh, dùng cả 3 cảm biến để quét phía trước, và quyết định hướng quay khi chạy xe )
+
+Khi cảm biến dưới đáy (cảm biến số 4) phát hiện khoảng cách > 20cm (tức robot bị nhấc lên):
+
+    Robot dừng hoàn toàn.
+
+
+Yêu cầu về code Arduino:
+
+Code cần đầy đủ, viết bằng Arduino IDE.
+
+Bao gồm:
+
+    Cấu hình chân cảm biến và module
+
+    Đọc và so sánh thời gian từ DS3231
+
+    Kích hoạt loa đúng thời điểm
+
+    Đọc dữ liệu từ cảm biến PIR
+
+    Kiểm tra và xử lý vật cản từ 3 cảm biến trước
+
+    Kiểm tra cảm biến dưới đáy để phát hiện khi robot bị nhấc lên
+
+    Lập trình điều hướng bằng L298N (forward, left, right, stop)
+
+Dễ dàng mở rộng trong tương lai để tích hợp Bluetooth nhận dữ liệu từ app. . đây là sơ đồ mạch hiện tại "<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+<!-- Arduino Uno -->
+<rect x="300" y="250" width="200" height="100" fill="#00979D" stroke="black" stroke-width="2" />
+<text x="400" y="300" text-anchor="middle" font-weight="bold" fill="white">Arduino Uno</text>
+
+<!-- Sensor Shield -->
+<rect x="300" y="200" width="200" height="50" fill="#61AEE6" stroke="black" stroke-width="2" />
+<text x="400" y="230" text-anchor="middle" font-weight="bold" fill="white">Sensor Shield</text>
+
+<!-- Ultrasonic Sensor 1 -->
+<rect x="100" y="100" width="120" height="60" fill="#FF9E2C" stroke="black" stroke-width="2" rx="5" ry="5" />
+<text x="160" y="135" text-anchor="middle" font-weight="bold" fill="white">Siêu âm 1</text>
+<line x1="160" y1="160" x2="300" y2="220" stroke="blue" stroke-width="2" />
+<text x="220" y="180" font-size="10">VCC → 5V</text>
+<text x="220" y="195" font-size="10">GND → GND</text>
+<text x="220" y="210" font-size="10">Trig → D2</text>
+<text x="220" y="225" font-size="10">Echo → D3</text>
+
+<!-- Ultrasonic Sensor 2 -->
+<rect x="100" y="200" width="120" height="60" fill="#FF9E2C" stroke="black" stroke-width="2" rx="5" ry="5" />
+<text x="160" y="235" text-anchor="middle" font-weight="bold" fill="white">Siêu âm 2</text>
+<line x1="160" y1="260" x2="300" y2="240" stroke="green" stroke-width="2" />
+<text x="220" y="240" font-size="10">VCC → 5V</text>
+<text x="220" y="255" font-size="10">GND → GND</text>
+<text x="220" y="270" font-size="10">Trig → D4</text>
+<text x="220" y="285" font-size="10">Echo → D5</text>
+
+<!-- Ultrasonic Sensor 3 -->
+<rect x="100" y="300" width="120" height="60" fill="#FF9E2C" stroke="black" stroke-width="2" rx="5" ry="5" />
+<text x="160" y="335" text-anchor="middle" font-weight="bold" fill="white">Siêu âm 3</text>
+<line x1="160" y1="360" x2="300" y2="280" stroke="purple" stroke-width="2" />
+<text x="220" y="320" font-size="10">VCC → 5V</text>
+<text x="220" y="335" font-size="10">GND → GND</text>
+<text x="220" y="350" font-size="10">Trig → D7</text>
+<text x="220" y="365" font-size="10">Echo → D8</text>
+
+<!-- NEW: Ultrasonic Sensor 4 (Ground detection) -->
+<rect x="100" y="400" width="120" height="60" fill="#FF9E2C" stroke="black" stroke-width="2" rx="5" ry="5" />
+<text x="160" y="425" text-anchor="middle" font-weight="bold" fill="white">Siêu âm 4</text>
+<text x="160" y="440" text-anchor="middle" font-size="10" fill="white">(Hướng xuống đất)</text>
+<line x1="160" y1="460" x2="300" y2="290" stroke="yellow" stroke-width="2" />
+<text x="220" y="400" font-size="10">VCC → 5V</text>
+<text x="220" y="415" font-size="10">GND → GND</text>
+<text x="220" y="430" font-size="10">Trig → A2</text>
+<text x="220" y="445" font-size="10">Echo → A3</text>
+
+<!-- PIR Motion Sensor -->
+<rect x="100" y="500" width="120" height="60" fill="#66BB6A" stroke="black" stroke-width="2" rx="5" ry="5" />
+<text x="160" y="535" text-anchor="middle" font-weight="bold" fill="white">PIR</text>
+<line x1="220" y1="530" x2="300" y2="300" stroke="red" stroke-width="2" />
+<text x="240" y="500" font-size="10">VCC → 5V</text>
+<text x="240" y="515" font-size="10">GND → GND</text>
+<text x="240" y="530" font-size="10">Signal → D6</text>
+
+<!-- Active Speaker -->
+<rect x="580" y="100" width="120" height="60" fill="#FB6E52" stroke="black" stroke-width="2" rx="10" ry="10" />
+<text x="640" y="135" text-anchor="middle" font-weight="bold" fill="white">Loa Active</text>
+<line x1="580" y1="130" x2="500" y2="230" stroke="orange" stroke-width="2" />
+<text x="530" y="160" font-size="10">Signal → D9</text>
+<text x="530" y="175" font-size="10">GND → GND</text>
+
+<!-- L298N Motor Driver -->
+<rect x="580" y="200" width="120" height="80" fill="#9C27B0" stroke="black" stroke-width="2" />
+<text x="640" y="240" text-anchor="middle" font-weight="bold" fill="white">L298N</text>
+<line x1="580" y1="240" x2="500" y2="260" stroke="brown" stroke-width="2" />
+<text x="530" y="215" font-size="10">ENA → D10</text>
+<text x="530" y="230" font-size="10">IN1 → D11</text>
+<text x="530" y="245" font-size="10">IN2 → D12</text>
+<text x="530" y="260" font-size="10">IN3 → D13</text>
+<text x="530" y="275" font-size="10">IN4 → A0</text>
+<text x="530" y="290" font-size="10">ENB → A1</text>
+
+<!-- Bluetooth Module -->
+<rect x="580" y="320" width="120" height="60" fill="#448AFF" stroke="black" stroke-width="2" rx="5" ry="5" />
+<text x="640" y="355" text-anchor="middle" font-weight="bold" fill="white">Bluetooth</text>
+<line x1="580" y1="350" x2="500" y2="300" stroke="cyan" stroke-width="2" />
+<text x="530" y="325" font-size="10">VCC → 5V</text>
+<text x="530" y="340" font-size="10">GND → GND</text>
+<text x="530" y="355" font-size="10">TX → RX(0)</text>
+<text x="530" y="370" font-size="10">RX → TX(1)</text>
+
+<!-- Legend -->
+<rect x="300" y="450" width="200" height="100" fill="#EEEEEE" stroke="black" stroke-width="1" />
+<text x="400" y="470" text-anchor="middle" font-weight="bold">Chú thích</text>
+<text x="310" y="490" font-size="10">• Digital pins: D0-D13</text>
+<text x="310" y="505" font-size="10">• Analog pins: A0-A5</text>
+<text x="310" y="520" font-size="10">• D0/D1 được sử dụng cho giao tiếp Serial</text>
+<text x="310" y="535" font-size="10">• COM: Kết nối nguồn (VCC/GND)</text>
+IGNORE_WHEN_COPYING_START
+content_copy
+download
+Use code with caution.
+IGNORE_WHEN_COPYING_END
+</svg>
+"

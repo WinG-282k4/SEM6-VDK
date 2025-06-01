@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" style="enable-background:new 64 -65.3 186 186;" viewBox="0 0 186 186" height="65mm" width="65mm"  gorn="0" xml:space="preserve" version="1.1" x="0px" y="0px" xmlns:xml="http://www.w3.org/XML/1998/namespace" id="svg5926">
+    <desc >
+        <referenceFile >lm393 sch.svg</referenceFile>
+    </desc>
+    <g  transform="translate(-64,65.3)">
+        <g >
+            <g >
+                <g >
+                    <g >
+                        <style type="text/css" >
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#000000;stroke-width:1.7928;stroke-linecap:round;stroke-linejoin:round;}
+	.st2{fill:none;stroke:#000000;stroke-width:3;}
+	.st3{font-family:Droid Sans;}
+	.st4{font-size:10px;}
+	.st5{font-size:18px;}
+</style>
+                        <defs />
+                        <polygon class="st0"  gorn="0.1.0.0.0.0.2" id="rect10582" points="64,-198.2 64,-198.2 64,-198.2 "/>
+                        <g  gorn="0.1.0.0.0.0.3" id="schematic">
+                            <rect height="132.9" width="106.3" class="st1"  gorn="0.1.0.0.0.0.3.0" x="117.1" y="-38.8" id="rect10403"/>
+                            <path class="st2" d="M90.6,67.5h26.6"  gorn="0.1.0.0.0.0.3.1" id="path10445"/>
+                            <path class="st2" d="M90.6,41h26.6"  gorn="0.1.0.0.0.0.3.2" id="path10449"/>
+                            <path class="st2" d="M90.6,14.4h26.6"  gorn="0.1.0.0.0.0.3.3" id="path10453"/>
+                            <path class="st2" d="M117.1-12.2H90.6"  gorn="0.1.0.0.0.0.3.4" id="path10461"/>
+                            <g  transform="translate(1.5018493e-6,-3.5689453e-5)">
+                                <g >
+                                    <g >
+                                        <g >
+                                            <g  gorn="0.1.0.0.0.0.3.5.0.0.0.0" id="text10504">
+                                                <g  transform="matrix(1 0 0 1 122.4646 -8.6407)">
+                                                    <g >
+                                                        <g >
+                                                            <g >
+                                                                <text class="st3 st4"  gorn="0.1.0.0.0.0.3.5.0.0.0.0.0.0.0.0.0" id="tspan10506">VDD</text>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                            <g  transform="translate(1.5018493e-6,-3.5689453e-5)">
+                                <g >
+                                    <g >
+                                        <g >
+                                            <g  gorn="0.1.0.0.0.0.3.6.0.0.0.0" id="text10508">
+                                                <g  transform="matrix(1 0 0 1 122.4646 17.9695)">
+                                                    <g >
+                                                        <g >
+                                                            <g >
+                                                                <text class="st3 st4"  gorn="0.1.0.0.0.0.3.6.0.0.0.0.0.0.0.0.0" id="tspan10510">D0</text>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                            <g  transform="translate(1.5018493e-6,-3.5689453e-5)">
+                                <g >
+                                    <g >
+                                        <g >
+                                            <g  gorn="0.1.0.0.0.0.3.7.0.0.0.0" id="text10512">
+                                                <g  transform="matrix(1 0 0 1 122.4646 44.509)">
+                                                    <g >
+                                                        <g >
+                                                            <g >
+                                                                <text class="st3 st4"  gorn="0.1.0.0.0.0.3.7.0.0.0.0.0.0.0.0.0" id="tspan10514">A0</text>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                            <g  transform="translate(1.5018493e-6,-3.5689453e-5)">
+                                <g >
+                                    <g >
+                                        <g >
+                                            <g  gorn="0.1.0.0.0.0.3.8.0.0.0.0" id="text10516">
+                                                <g  transform="matrix(1 0 0 1 122.4646 71.1191)">
+                                                    <g >
+                                                        <g >
+                                                            <g >
+                                                                <text class="st3 st4"  gorn="0.1.0.0.0.0.3.8.0.0.0.0.0.0.0.0.0" id="tspan10518">GND</text>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                            <rect height="7.1" width="7.1" class="st0"  gorn="0.1.0.0.0.0.3.9" x="87" y="-15.7" id="connector0pin"/>
+                            <rect height="7.1" width="7.1" class="st0"  gorn="0.1.0.0.0.0.3.10" x="87" y="10.8" id="connector4pin"/>
+                            <rect height="7.1" width="7.1" class="st0"  gorn="0.1.0.0.0.0.3.11" x="87" y="37.4" id="connector3pin"/>
+                            <rect height="7.1" width="7.1" class="st0"  gorn="0.1.0.0.0.0.3.12" x="87" y="64" id="connector2pin"/>
+                            <g  gorn="0.1.0.0.0.0.3.13" id="text4619">
+                                <g  transform="matrix(1 0 0 1 160.1764 33.879)">
+                                    <g >
+                                        <g >
+                                            <g >
+                                                <text class="st3 st5"  gorn="0.1.0.0.0.0.3.13.0.0.0.0.0" id="tspan4621">LM393</text>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
